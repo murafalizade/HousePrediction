@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="panel">
+        <h4>Price Prediction</h4>
+        <form method="POST" action="fetuare">
+            <select name='loc'>Locations
+                {%for op in loc%}
+
+                <option value='{{op}}'>{{op}}</option>
+
+                {%endfor%}
+            </select></br>
+            <input name='area' placeholder='Area m^2' /></br>
+            <input type="number" name="room" placeholder='Room count' /></br>
+            <input type="number" name='all_floor' placeholder='All floor' /></br>
+            <input name="floor" type="number" placeholder='Your current foor' /></br>
+            <button> Predict</button>
+            
+        </form>
+        
+    </div>
+    <table style="border-collapse: collapse;width: 900px;margin-left:25%;" border="1">
+        <tr style="background-color: red;color: white;height: 50px;text-align: center;">
+            <th>Prices</th>
+            <th>Locations</th>
+            <th>Rooms</th>
+            <th>Floors</th>
+        </tr>
+   {%for bina in binas%}
+        <tr style="text-align: center;height: 30px;">
+            <td>
+                {{bina.Prices}}
+            </td>
+
+            
+            <td>
+                {{bina.Locations}}
+            </td>
+
+            <td>
+                {{bina.Rooms}}
+            </td>
+
+            
+            <td>
+                {{bina.Floor}}
+            </td>
+            
+        </tr>
+    {% endfor %}
+
+</table>
+</body>
+</html>
